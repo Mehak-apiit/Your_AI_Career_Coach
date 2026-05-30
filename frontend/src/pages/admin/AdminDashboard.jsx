@@ -46,9 +46,12 @@ const AdminDashboard = () => {
   };
 
   const deleteUser = async (userId) => {
-    if (!confirm('Are you sure you want to delete this user? This action cannot be undone.')) return;
+    // eslint-disable-next-line no-restricted-globals
+    const confirmed = window.confirm('Are you sure you want to delete this user? This action cannot be undone.');
+    if (!confirmed) return;
     
     setDeletingUser(userId);
+
     try {
       await api.delete(`/admin/users/${userId}`);
       setUsers(users.filter(user => user._id !== userId));
