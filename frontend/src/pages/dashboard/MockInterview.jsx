@@ -254,7 +254,14 @@ export default function MockInterview() {
   };
 
   const currentQuestion = questions[currentQuestionIndex];
+  const CategoryIcon = currentQuestion
+    ? (CATEGORY_ICONS[currentQuestion.category] || BrainCircuit)
+    : BrainCircuit;
+  const categoryColor = currentQuestion
+    ? (CATEGORY_COLORS[currentQuestion.category] || 'bg-gray-100 text-gray-700')
+    : 'bg-gray-100 text-gray-700';
   const progress = questions.length > 0 ? ((currentQuestionIndex) / questions.length) * 100 : 0;
+
 
   // ===================== SETUP PHASE =====================
   if (phase === PHASES.SETUP) {
