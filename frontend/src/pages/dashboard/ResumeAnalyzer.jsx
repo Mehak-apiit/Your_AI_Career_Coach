@@ -11,9 +11,10 @@ const ResumeAnalyzer = () => {
   const [loading, setLoading] = useState(false);
   const [analysis, setAnalysis] = useState(null);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate(); // unused
 
   const handleFileChange = useCallback((e) => {
+
     const selectedFile = e.target.files[0];
     if (selectedFile) {
       const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];

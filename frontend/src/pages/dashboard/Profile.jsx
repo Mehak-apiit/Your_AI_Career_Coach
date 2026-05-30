@@ -7,7 +7,8 @@ import Card from '../../components/ui/Card';
 import { Save, User, Mail, Briefcase, Star, Edit3, Check, Loader2 } from 'lucide-react';
 
 const Profile = () => {
-  const { user } = useAuth();
+  // const { user } = useAuth(); // unused
+
   const [profile, setProfile] = useState({
     name: '',
     email: '',

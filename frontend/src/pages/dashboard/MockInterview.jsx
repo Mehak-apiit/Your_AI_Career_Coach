@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Mic,
   Loader2,
-  Send,
   CheckCircle,
   ChevronLeft,
   ChevronRight,
@@ -20,6 +19,7 @@ import {
   X,
   History,
 } from 'lucide-react';
+
 import { interviewAPI } from '../../lib/api';
 import Sidebar from '../../components/Sidebar';
 import Button from '../../components/ui/Button';
@@ -684,17 +684,18 @@ export default function MockInterview() {
               <div className="space-y-6 mb-10">
                 {results.questions?.map((q, idx) => {
                   const qScoreColor = q.score >= 8 ? 'text-green-600' : q.score >= 5 ? 'text-yellow-600' : 'text-red-600';
-                  const qCategoryIcon = CATEGORY_ICONS[q.category] || BrainCircuit;
                   return (
                     <Card key={idx} className="p-6 border-0 shadow-lg">
+
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
                           <span className="w-8 h-8 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center font-bold text-sm">
                             {idx + 1}
                           </span>
                           <span className={`px-3 py-1 rounded-full text-xs font-semibold border flex items-center gap-1 ${CATEGORY_COLORS[q.category] || 'bg-gray-100 text-gray-700'}`}>
-                            <qCategoryIcon size={12} />
+                            <CategoryIcon size={12} />
                             {q.category.charAt(0).toUpperCase() + q.category.slice(1)}
+
                           </span>
                         </div>
                         <div className={`text-2xl font-bold ${qScoreColor}`}>
