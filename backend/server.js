@@ -26,9 +26,10 @@ app.use('/api/ai', require('./routes/ai'));
 app.use('/api/chat', require('./routes/chat'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/interview', require('./routes/interview'));
+console.log("MONGO_URI:", process.env.MONGO_URI);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log(' MongoDB Connected'))
   .catch(err => console.log('MongoDB Error:', err));
 
